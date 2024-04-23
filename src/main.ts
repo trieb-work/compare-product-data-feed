@@ -63,8 +63,8 @@ async function compareFeeds(oldUrl: string, newUrl: string) {
       }
     });
 
-    console.log("Missing in new feed:", Array.from(missingInNew));
-    console.log("Price differences:", Array.from(priceDifferences));
+    console.log(`Missing in new feed (total ${missingInNew.size}):`, Array.from(missingInNew));
+    console.log(`Price differences (total ${priceDifferences.size}):`, Array.from(priceDifferences));
 
   } catch (error) {
     console.error("Error comparing feeds:", error);
