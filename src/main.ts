@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 import { parseStringPromise } from 'xml2js';
+const util = require('node:util');
+
 
 /**
  * run with: pnpm tsx pnpm tsx src/main.ts OLDURL NEWURL
@@ -63,6 +65,7 @@ async function compareFeeds(oldUrl: string, newUrl: string) {
       }
     });
 
+    util.inspect.defaultOptions.maxArrayLength = null;
     console.log(`Missing in new feed (total ${missingInNew.size}):`, Array.from(missingInNew));
     console.log(`Price differences (total ${priceDifferences.size}):`, Array.from(priceDifferences));
 
